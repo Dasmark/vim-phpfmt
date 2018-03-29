@@ -48,7 +48,7 @@ function! phpfmt#fmt#format() abort "{{{
     endif
 
     " populate the final command with user based fmt options
-    let command = g:phpfmt_command . ' ' . g:phpfmt_options
+    let command = get(b:, 'phpfmt_command', get(g:, 'phpfmt_command', 'phpcbf')) . ' ' . get(b:, 'phpfmt_options', get(g:, 'phpfmt_options', ''))
     " execute our system command...
     call system(command . ' ' . l:tmpname)
 
